@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JENNILUXE HOME MART | Luxury Furniture & Home Essentials | Quezon City</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jenniluxe Home Mart – Shop luxury furniture, home goods, kitchenware, and décor in Quezon City. Modern, stylish, and affordable. Fast delivery across the Philippines.">
+  <link rel="icon" type="image/png" href="image/FAVICON.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,900|Inter:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Montserrat', Arial, sans-serif;
+      background: #101010;
+      color: #fff;
+      min-height: 100vh;
+      letter-spacing: 0.01em;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* HEADER / NAV */
+    .navbar {
+      width: 100vw;
+      background: #000;
+      box-shadow: 0 4px 20px #22222280;
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      border-bottom: 2.5px solid #FFD600;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 80px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 15px;
+    }
+    .nav-logo img {
+      width: 62px; height: 62px;
+      border-radius: 16px;
+      background: #000;
+      border: 2px solid #FFD600;
+      box-shadow: 0 2px 12px #FFD60033;
+      object-fit: contain;
+    }
+    .nav-brand {
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .nav-brand-main {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 900;
+      font-size: 1.5em;
+      color: #fff;
+      letter-spacing: .05em;
+    }
+    .nav-brand-sub {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1em;
+      color: #FFD600;
+      letter-spacing: .06em;
+      margin-top: 2px;
+    }
+    .nav-brand-tagline {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: .92em;
+      color: #fff;
+      opacity: .8;
+      letter-spacing: .11em;
+      margin-top: 3px;
+    }
+    .nav-menu {
+      display: flex; align-items: center; gap: 32px;
+      font-weight: 600; font-size: 1.09em;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .nav-menu a {
+      padding: 9px 0;
+      border-bottom: 2px solid transparent;
+      transition: border .18s, color .18s;
+      color: #fff;
+    }
+    .nav-menu a.active,
+    .nav-menu a:hover {
+      border-bottom: 2px solid #FFD600;
+      color: #FFD600;
+    }
+    .nav-cart-btn {
+      background: linear-gradient(90deg, #FFD600 60%, #fffbea 100%);
+      color: #101010;
+      border: none;
+      border-radius: 100px;
+      padding: 11px 26px 11px 40px;
+      font-weight: 700;
+      font-size: 1em;
+      box-shadow: 0 2px 18px #FFD6001a;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 9px;
+      position: relative;
+      transition: background .15s;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .nav-cart-btn:hover {
+      background: linear-gradient(90deg, #fffbea 60%, #FFD600 100%);
+      color: #101010;
+    }
+    .cart-icon { font-size: 1.4em; position: absolute; left: 17px; top: 8px;}
+    .cart-count {
+      background: #FFD600; color: #101010;
+      border-radius: 50px; padding: 2px 11px;
+      font-size: .99em; font-weight: 700;
+      margin-left: 3px;
+      min-width: 28px;
+      display: inline-block;
+      box-shadow: 0 2px 8px #FFD6002a;
+    }
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 7px 0;
+      margin: 0 13px 0 0;
+      z-index: 13001;
+      width: 40px;
+      height: 40px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      margin: 4px 0;
+      background: #FFD600;
+      border-radius: 2px;
+      transition: all .18s;
+    }
+    @media (max-width:800px) {
+      .nav-inner { height: 62px; padding: 0 9px;}
+      .nav-logo img { width: 46px; height: 46px;}
+      .nav-brand-main { font-size: 1.11em;}
+      .nav-menu { gap: 18px; font-size: 1em;}
+      .nav-cart-btn { padding: 8px 16px 8px 28px; font-size: .97em;}
+      .cart-icon { left: 7px; font-size: 1.1em;}
+    }
+    @media (max-width: 700px) {
+      .nav-inner { padding: 0 3vw; height: 50px;}
+      .nav-menu {
+        display: none;
+        position: fixed;
+        top: 50px; left: 0; right: 0;
+        background: #000;
+        flex-direction: column;
+        gap: 0;
+        width: 100vw;
+        box-shadow: 0 8px 32px #FFD60022;
+        border-bottom: 2px solid #FFD600;
+        z-index: 13000;
+      }
+      .nav-menu.nav-menu-mobile {
+        display: flex;
+      }
+      .nav-menu a {
+        padding: 17px 0 17px 18px;
+        border-bottom: 1px solid #242424;
+        width: 100vw;
+        text-align: left;
+        font-size: 1.11em;
+      }
+      .nav-burger {
+        display: flex;
+      }
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 110px;
+      min-height: 450px;
+      background: #101010;
+      display: flex; flex-direction: row; align-items: center; justify-content: center;
+      box-shadow: 0 8px 52px #FFD60013;
+    }
+    .hero-content {
+      max-width: 620px;
+      padding: 44px 28px;
+      display: flex; flex-direction: column; align-items: flex-start;
+      z-index: 1;
+    }
+    .hero-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2.55em; font-weight: 900; color: #fff;
+      letter-spacing: .03em; margin-bottom: 20px;
+      line-height: 1.09;
+      text-shadow: 0 3px 16px #FFD60044;
+    }
+    .hero-desc {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1.2em; margin-bottom: 25px; color: #FFD600;
+      font-weight: 600; line-height: 1.5;
+      text-shadow: 0 1px 8px #FFD60033;
+    }
+    .hero-btns {
+      display: flex; gap: 18px; margin-top: 12px; flex-wrap: wrap;
+    }
+    .hero-btn {
+      background: linear-gradient(90deg, #FFD600 80%, #fffbea 100%);
+      color: #101010;
+      border: none;
+      border-radius: 100px;
+      padding: 13px 33px;
+      font-weight: 900;
+      font-size: 1.15em;
+      cursor: pointer;
+      box-shadow: 0 2px 18px #FFD6001a;
+      transition: background .15s, color .13s;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: .09em;
+    }
+    .hero-btn.alt {
+      background: #fff;
+      color: #000;
+      border: 2px solid #FFD600;
+    }
+    .hero-btn:hover {
+      background: linear-gradient(90deg, #fffbea 80%, #FFD600 100%);
+      color: #FFD600;
+    }
+    .hero-img {
+      flex:0 0 320px;
+      margin-right: -60px;
+      z-index: 0;
+    }
+    .hero-img img {
+      width: 320px; height: auto; border-radius: 36px;
+      box-shadow: 0 8px 32px #FFD60066, 0 0 0 7px #FFD60020;
+      border: 3px solid #FFD600;
+      display:block;
+      background:#000;
+      object-fit: contain;
+    }
+    @media (max-width:900px) {
+      .hero { flex-direction: column; padding-top: 62px; min-height: 320px;}
+      .hero-img { margin: 0 auto 22px auto; }
+      .hero-img img { width: 180px; border-radius: 18px;}
+      .hero-content { padding: 26px 6vw;}
+      .hero-title { font-size: 2em;}
+    }
+    @media (max-width: 700px) {
+      .hero-content { padding: 14px 3vw;}
+      .hero-img img { width: 110px; border-radius: 12px;}
+      .hero-title { font-size: 1.5em;}
+      .hero-desc { font-size: 1em;}
+      .hero-btns{ gap: 9px; }
+    }
+    @media (max-width: 480px) {
+      .hero-content { padding: 7px 1vw;}
+      .hero-img img { width: 80px; }
+    }
+
+    /* FEATURES */
+    .features {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex; gap: 36px; flex-wrap: wrap; justify-content: center;
+      padding: 55px 7vw 0 7vw;
+    }
+    .feature-card {
+      background: #151515;
+      border-radius: 18px;
+      box-shadow: 0 2px 14px #FFD60013;
+      flex: 1 1 220px; min-width: 200px; max-width: 270px;
+      padding: 22px 26px 18px 26px;
+      text-align: center;
+      border: 2px solid #FFD600;
+      transition: box-shadow .16s;
+      color: #fff;
+    }
+    .feature-emoji {
+      font-size: 2.3em; margin-bottom: 7px; color: #FFD600;
+    }
+    .feature-title {
+      font-weight: 800; color: #FFD600; font-size: 1.18em;
+      margin-bottom: 8px; letter-spacing: .01em;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .feature-desc {
+      color: #fff; font-size: 1em; font-weight: 400;
+      margin-bottom: 0;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    @media (max-width:900px) {
+      .features { gap: 14px; padding: 32px 2vw 0 2vw;}
+    }
+    @media (max-width:700px) {
+      .features { flex-direction: column; padding: 14px 3vw 0 3vw;}
+      .feature-card { min-width: 90vw; max-width: 97vw;}
+    }
+
+    /* PRODUCTS */
+    .products-section {
+      max-width: 1200px;
+      margin: 56px auto 0 auto;
+      padding: 0 7vw;
+    }
+    .products-title {
+      text-align:center; font-size:1.33em; font-weight:900; color:#FFD600; margin-bottom:31px; letter-spacing:.01em;
+      text-shadow:0 2px 12px #FFD60022;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .products-list {
+      display: flex; flex-wrap: wrap; gap: 22px; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .product-card {
+      background: #151515;
+      border-radius: 13px;
+      box-shadow: 0 2px 10px #FFD60019;
+      min-width: 185px; max-width: 220px;
+      flex: 1 1 185px;
+      padding: 17px 11px 14px 11px;
+      border: 1.5px solid #FFD600;
+      display: flex; flex-direction: column; align-items: center;
+      transition: box-shadow .14s;
+      position: relative;
+    }
+    .product-img-holder {
+      width: 80px; height: 80px;
+      background: #222;
+      border-radius: 13px;
+      margin-bottom: 10px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      border: 1.5px solid #FFD600;
+    }
+    .product-img-holder img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .product-img-placeholder { color: #FFD600; font-size: 2.1em; }
+    .product-name { font-weight:800; color:#FFD600; margin-bottom:4px; font-size:1.09em; font-family:'Montserrat',Arial,sans-serif;}
+    .product-desc { font-size:0.97em; color:#fff; margin-bottom:9px; text-align:center; font-family:'Inter',Arial,sans-serif;}
+    .product-price { color:#FFD600; font-size:1.07em; font-weight:800; margin-bottom:7px; font-family:'Montserrat',Arial,sans-serif;}
+    .product-stock { font-size:.98em; color:#FFFBEA; margin-bottom:8px; font-family:'Inter',Arial,sans-serif;}
+    .product-btn {
+      background: linear-gradient(90deg, #FFD600 70%, #fffbea 100%);
+      color: #101010;
+      border: none;
+      border-radius: 100px;
+      padding: 7px 17px;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: auto;
+      transition: background .13s, color .13s;
+      font-family: 'Montserrat', Arial, sans-serif;
+      text-align: center;
+      width: 100%;
+      letter-spacing: .04em;
+    }
+    .product-btn:disabled { opacity:.6; cursor:not-allowed;}
+    .product-btn:hover { background: linear-gradient(90deg, #fffbea 70%, #FFD600 100%); color: #FFD600;}
+    @media (max-width:700px) {
+      .products-list { flex-direction: column;}
+      .product-card { min-width: 90vw; max-width: 97vw;}
+      .products-section { padding: 0 3vw;}
+    }
+    @media (max-width:420px) {
+      .product-card { min-width: 97vw; max-width: 99vw; padding: 6px 2vw 10px 2vw;}
+    }
+
+    /* CONTACT */
+    .contact-section {
+      background: #151515;
+      border-radius: 17px;
+      box-shadow: 0 2px 18px #FFD60020;
+      margin: 54px auto 0 auto;
+      padding: 32px 28px 22px 28px;
+      max-width: 600px;
+      border: 2px solid #FFD600;
+      text-align: left;
+      color: #fff;
+    }
+    .contact-title {
+      font-size: 1.17em;
+      color: #FFD600;
+      font-weight: 900;
+      margin-bottom: 17px;
+      text-align: left;
+      letter-spacing: .01em;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .contact-list {
+      margin-left: 1.2em;
+      font-size: 1.05em;
+      color: #fff;
+      line-height: 1.7;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    .contact-list strong { color: #FFD600;}
+    @media (max-width:700px) {
+      .contact-section { padding: 13px 4vw 10px 4vw; max-width: 98vw;}
+    }
+
+    /* FOOTER */
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 38px 10px 32px 10px;
+      margin-top: 58px;
+      font-size: 1.05em;
+      font-family: 'Inter', Arial, sans-serif;
+      border-top: 3px solid #FFD600;
+    }
+    .footer-main {
+      max-width: 700px; margin: 0 auto; text-align: center;
+    }
+    .footer-contact-title {
+      margin-bottom: 7px;
+      font-weight: 900;
+      font-size: 1.18em;
+      color: #FFD600;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: .08em;
+    }
+    .footer-contact {
+      margin-bottom: 9px;
+      color: #fff;
+      font-size: 1em;
+    }
+    .footer-contact a { color: #FFD600; text-decoration: underline; }
+    .footer-copy {
+      color: #FFD600;
+      font-size: 0.99em;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: .04em;
+    }
+    .footer-links {
+      margin-top: 7px;
+      font-size: 1em;
+    }
+    .footer-links a {
+      color: #FFD600;
+      margin: 0 6px;
+      text-decoration: underline;
+      transition: color .13s;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .footer-links a:hover { color: #fffbea; }
+    /* CART MODAL */
+    @media (max-width:700px) {
+      .cart-modal {
+        width: 98vw !important;
+        left: 50% !important;
+        transform: translate(-50%,-50%) !important;
+        padding: 7vw 2vw 4vw 2vw !important;
+      }
+    }
+    @media (max-width:420px) {
+      .cart-modal {
+        width: 99vw !important;
+        padding: 14px 2vw 9px 2vw !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <img src="image/LOGO.png" alt="Jenniluxe Home Mart Logo">
+        <div class="nav-brand">
+          <span class="nav-brand-main">JENNILUXE</span>
+          <span class="nav-brand-sub">HOME MART</span>
+          <span class="nav-brand-tagline">LUXURY FURNITURE</span>
+        </div>
+      </div>
+      <button class="nav-burger" id="nav-burger" aria-label="Open Menu" tabindex="0">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav-cart-btn" onclick="showCart()" aria-label="View Cart">
+        <span class="cart-icon">🛒</span>
+        Cart <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </nav>
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-title">Welcome to JENNILUXE HOME MART!</div>
+      <div class="hero-desc">
+        Your one-stop shop for quality home goods and luxury furniture in Quezon City. Discover our curated selection of premium essentials—from stunning sofas and dining tables to chic décor, kitchenware, and cleaning supplies. Make your house a home with Jenniluxe.
+      </div>
+      <div class="hero-btns">
+        <a href="#products"><button class="hero-btn">Shop Now</button></a>
+        <a href="#about"><button class="hero-btn alt">Our Story</button></a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="image/LOGO.png" alt="Jenniluxe Home Mart Logo" width="320" height="320">
+    </div>
+  </section>
+  <!-- FEATURES -->
+  <section class="features" id="about">
+    <div class="feature-card">
+      <div class="feature-emoji">🏡</div>
+      <div class="feature-title">Quality First</div>
+      <div class="feature-desc">We prioritize offering only the best products—each piece is handpicked for style and durability.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-emoji">🤝</div>
+      <div class="feature-title">Customer-Centric</div>
+      <div class="feature-desc">Your satisfaction is our top priority. Enjoy friendly service and expert guidance with every purchase.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-emoji">💸</div>
+      <div class="feature-title">Affordability</div>
+      <div class="feature-desc">Luxury living, accessible pricing. We bring style and function without breaking the bank.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-emoji">🚚</div>
+      <div class="feature-title">Fast Delivery</div>
+      <div class="feature-desc">Nationwide delivery and prompt fulfillment to get your orders on time, every time.</div>
+    </div>
+  </section>
+  <!-- PRODUCTS -->
+  <section class="products-section" id="products">
+    <div class="products-title">Featured Products</div>
+    <div class="products-list" id="products-list">
+      <!-- Products Rendered by JS -->
+    </div>
+  </section>
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-title">Contact Us</div>
+    <ul class="contact-list">
+      <li><strong>Phone:</strong> +63 917 842 3947</li>
+      <li><strong>Email:</strong> <a href="mailto:contact@jenniluxehomemart.com">contact@jenniluxehomemart.com</a></li>
+      <li><strong>Address:</strong> #42 Santol Street, Barangay Bahay Toro, 1106 Quezon City, NCR, Philippines</li>
+      <li><strong>Business Hours:</strong> Monday–Saturday: <strong>8:00 AM – 6:00 PM</strong> <br>Sunday: <em>Closed</em></li>
+    </ul>
+  </section>
+  <!-- CART MODAL -->
+  <div class="cart-modal-bg" id="cart-modal-bg" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.33);z-index:1200;"></div>
+  <aside class="cart-modal" id="cart-modal" tabindex="0" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:340px;max-width:96vw;background:#151515;border-radius:18px;box-shadow:0 8px 32px #FFD60044,0 0 0 5px #FFD60044;z-index:1300;padding:19px 13px 14px 13px;border:2px solid #FFD600;text-align:left;font-family:'Inter',Arial,sans-serif;color:#fff;">
+    <h3 style="color:#FFD600;font-size:1.09em;margin:0 0 10px 0;">🛒 Your Cart <span class="cart-count" id="cart-modal-count">0</span></h3>
+    <ul class="cart-items-list" id="cart-items"></ul>
+    <div class="empty-msg" id="cart-empty-msg" style="display:none;color:#888;font-style:italic;margin:10px 0;">Your cart is empty.</div>
+    <div class="cart-total-row" id="cart-total-row" style="font-weight:700;color:#FFD600;"></div>
+    <button class="product-btn" onclick="checkout()" aria-label="Checkout" style="margin-right:7px;">Checkout</button>
+    <button class="product-btn" onclick="emptyCart()" aria-label="Empty Cart" style="background:#fff;color:#FFD600;border:2px solid #FFD600;">Empty Cart</button>
+    <button class="product-btn close-btn" onclick="closeCart()" aria-label="Close" style="background:#fff;color:#FFD600;border:2px solid #FFD600;">Close</button>
+  </aside>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-contact">
+        <div class="footer-contact-title"><b>JENNILUXE HOME MART</b></div>
+        <div>
+          #42 Santol Street, Barangay Bahay Toro, Quezon City, NCR, Philippines<br>
+          <b>Phone:</b> +63 917 842 3947 &nbsp;|&nbsp; <b>Email:</b>
+          <a href="mailto:contact@jenniluxehomemart.com">contact@jenniluxehomemart.com</a>
+        </div>
+        <div>VAT No: 123-456-7890</div>
+        <div>Business Hours: Mon–Sat, 8:00 AM – 6:00 PM</div>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Service</a> |
+        <a href="refund-policy.html">Refund Policy</a>
+      </div>
+      <div class="footer-copy">
+        © 2025 JENNILUXE HOME MART. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <!-- JAVASCRIPT -->
+  <script>
+    // ----- MOBILE NAV -----
+    (function() {
+      var burger = document.getElementById('nav-burger');
+      var menu = document.getElementById('nav-menu');
+      function closeMenuOnResize() {
+        if(window.innerWidth > 700) {
+          menu.classList.remove('nav-menu-mobile');
+        }
+      }
+      burger && burger.addEventListener('click', function(e) {
+        menu.classList.toggle('nav-menu-mobile');
+      });
+      window.addEventListener('resize', closeMenuOnResize);
+      document.addEventListener('click', function(e) {
+        if(menu.classList.contains('nav-menu-mobile') &&
+          !menu.contains(e.target) &&
+          (!burger.contains(e.target))
+        ) {
+          menu.classList.remove('nav-menu-mobile');
+        }
+      });
+    })();
+
+    // ----- PRODUCT DATA -----
+    const products = [
+      {
+        name: "Modern Sofa Set",
+        price: 15999,
+        desc: "Elegant and comfy for any living room.",
+        stock: Math.floor(Math.random()*10)+5,
+        img: "image/placeholder-sofa.png"
+      },
+      {
+        name: "Wooden Dining Table",
+        price: 7999,
+        desc: "Solid wood, seats up to 6. Durable & stylish.",
+        stock: Math.floor(Math.random()*10)+3,
+        img: "image/placeholder-dining.png"
+      },
+      {
+        name: "Decorative Wall Clock",
+        price: 1399,
+        desc: "Modern design; a perfect accent for your space.",
+        stock: Math.floor(Math.random()*10)+7,
+        img: "image/placeholder-clock.png"
+      },
+      {
+        name: "Premium Cookware Set",
+        price: 2499,
+        desc: "Complete kitchen essentials, non-stick.",
+        stock: Math.floor(Math.random()*10)+8,
+        img: "image/placeholder-cookware.png"
+      },
+      {
+        name: "Microfiber Towel Set",
+        price: 799,
+        desc: "Soft, absorbent, perfect for everyday use.",
+        stock: Math.floor(Math.random()*10)+5,
+        img: "image/placeholder-towels.png"
+      },
+      {
+        name: "Eco-Friendly Cleaner",
+        price: 299,
+        desc: "Safe, effective formula for all surfaces.",
+        stock: Math.floor(Math.random()*10)+12,
+        img: "image/placeholder-cleaner.png"
+      },
+      {
+        name: "Bedside Lamp",
+        price: 899,
+        desc: "Warm light, modern look, fits any décor.",
+        stock: Math.floor(Math.random()*10)+4,
+        img: "image/placeholder-lamp.png"
+      },
+      {
+        name: "Double-Sided Rug",
+        price: 1299,
+        desc: "Soft, reversible, and easy to clean.",
+        stock: Math.floor(Math.random()*10)+2,
+        img: "image/placeholder-rug.png"
+      }
+    ];
+    // ----- CART -----
+    let cart = [];
+    // ----- RENDER PRODUCTS -----
+    function renderProducts() {
+      const el = document.getElementById('products-list');
+      el.innerHTML = '';
+      products.forEach((prod, idx) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <div class="product-img-holder">
+            <img src="${prod.img}" alt="${prod.name} image" onerror="this.src='image/LOGO.png';">
+          </div>
+          <div class="product-name">${prod.name}</div>
+          <div class="product-desc">${prod.desc}</div>
+          <div class="product-price">₱${prod.price.toLocaleString()}</div>
+          <div class="product-stock">Qty: ${prod.stock}</div>
+          <button class="product-btn" onclick="addToCart(${idx})" ${prod.stock === 0 ? 'disabled' : ''}>Add to Cart</button>
+        `;
+        el.appendChild(card);
+      });
+    }
+    // ----- ADD TO CART -----
+    function addToCart(idx) {
+      let prod = products[idx];
+      let existing = cart.find(item => item.name === prod.name);
+      if(existing) {
+        if(existing.qty < prod.stock) existing.qty++;
+      } else {
+        cart.push({ name: prod.name, price: prod.price, qty: 1, stock: prod.stock });
+      }
+      updateCart();
+      highlightCart();
+    }
+    // ----- UPDATE CART DISPLAY -----
+    function updateCart() {
+      let totalCount = 0, totalAmount = 0;
+      cart.forEach(item => { totalCount += item.qty; totalAmount += item.price*item.qty; });
+      document.getElementById('cart-count').textContent = totalCount;
+      document.getElementById('cart-modal-count').textContent = totalCount;
+      const cartItems = document.getElementById('cart-items');
+      cartItems.innerHTML = '';
+      if(cart.length === 0) {
+        document.getElementById('cart-empty-msg').style.display = '';
+        document.getElementById('cart-total-row').textContent = '';
+      } else {
+        document.getElementById('cart-empty-msg').style.display = 'none';
+        cart.forEach((item, idx) => {
+          let li = document.createElement("li");
+          li.innerHTML = `<span>${item.name} × ${item.qty} - ₱${(item.price*item.qty).toLocaleString()}</span>
+            <button class="product-btn" aria-label="Remove ${item.name} from cart" onclick="removeCartItem(${idx})" style="background:#fff;color:#FFD600;border:2px solid #FFD600;padding:3px 13px;min-width:0;">×</button>`;
+          cartItems.appendChild(li);
+        });
+        let totalItem = document.createElement("li");
+        totalItem.className = "cart-total-row";
+        totalItem.innerHTML = `<span>Grand Total:</span> <span>₱${totalAmount.toLocaleString()}</span>`;
+        cartItems.appendChild(totalItem);
+        document.getElementById('cart-total-row').textContent = '';
+      }
+      localStorage.setItem('jenniluxe_cart', JSON.stringify(cart));
+    }
+    // ----- REMOVE CART ITEM -----
+    function removeCartItem(idx) {
+      cart.splice(idx, 1);
+      updateCart();
+    }
+    // ----- CART UI -----
+    function highlightCart() {
+      const cartDiv = document.querySelector('.nav-cart-btn');
+      cartDiv.style.boxShadow = "0px 12px 40px #FFD60077, 0 0 0 10px #FFD600";
+      setTimeout(() => cartDiv.style.boxShadow = "", 340);
+    }
+    function showCart() {
+      document.getElementById("cart-modal").style.display = "block";
+      document.getElementById("cart-modal-bg").style.display = "block";
+    }
+    function closeCart() {
+      document.getElementById("cart-modal").style.display = "none";
+      document.getElementById("cart-modal-bg").style.display = "none";
+    }
+    function checkout() {
+      if(cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      localStorage.setItem('jenniluxe_cart', JSON.stringify(cart));
+      window.location.href = "order-summary.html";
+    }
+    function emptyCart() {
+      if(!confirm("Are you sure you want to empty your cart?")) return;
+      cart = [];
+      updateCart();
+    }
+    // ----- RESTORE CART -----
+    window.addEventListener("DOMContentLoaded", function() {
+      renderProducts();
+      const savedCart = localStorage.getItem('jenniluxe_cart');
+      if(savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCart();
+      }
+      document.getElementById("cart-modal-bg").onclick = closeCart;
+      document.querySelectorAll('.nav-menu a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
